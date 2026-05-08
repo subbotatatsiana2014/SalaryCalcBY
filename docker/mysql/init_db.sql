@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS project_tms;
+CREATE USER IF NOT EXISTS 'tms_user'@'%' IDENTIFIED BY 'password123';
+GRANT ALL PRIVILEGES ON project_tms.* TO 'tms_user'@'%';
+FLUSH PRIVILEGES;

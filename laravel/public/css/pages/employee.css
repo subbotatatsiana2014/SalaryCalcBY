@@ -1,0 +1,396 @@
+.employee-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.avatar-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gray-200);
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.employee-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gray-200);
+}
+
+.employee-avatar-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.employee-name {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.employee-email {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+.employee-position {
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.employee-header {
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+.employee-header-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.employee-stats {
+    background: #f8fafc;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid var(--gray-200);
+    margin-bottom: 20px;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--gray-500);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.tab-btn:hover {
+    color: var(--gray-700);
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: #eff6ff;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn var(--transition-base);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.skill-tag {
+    display: inline-block;
+    background: var(--gray-100);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    margin: 2px;
+    color: var(--gray-700);
+}
+
+.notes-box {
+    background: var(--gray-50);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray-700);
+}
+
+.salary-amount {
+    font-weight: 600;
+    color: #059669;
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        flex: 1;
+        min-width: 100px;
+        text-align: center;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+
+    .employee-header {
+        padding: 12px;
+    }
+
+    .employee-avatar-large img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Employee Avatar Styles ===== */
+
+/* Аватар в таблице сотрудников */
+.employee-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employee-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Заглушка для отсутствующего аватара */
+.employee-avatar .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Крупный аватар на странице просмотра */
+.employee-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e2e8f0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employee-avatar-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Информация о сотруднике в таблице */
+.employee-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.employee-details {
+    flex: 1;
+    min-width: 0; /* Для обрезания длинного текста */
+}
+
+.employee-name {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 14px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.employee-email {
+    font-size: 12px;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Карточка сотрудника в гриде */
+.employee-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.employee-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+.employee-card .employee-avatar {
+    width: 48px;
+    height: 48px;
+}
+
+.employee-card .employee-info {
+    flex: 1;
+}
+
+.employee-card .employee-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.employee-card .employee-position {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* Форма загрузки аватара */
+.avatar-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.avatar-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #e5e7eb;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-preview .preview-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+/* Сетка сотрудников */
+.employees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* Table responsive fixes */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.employees-table {
+    min-width: 800px;
+    width: 100%;
+}
+
+.employees-table th,
+.employees-table td {
+    vertical-align: middle;
+    padding: 12px 16px;
+}
+
+/* Salary amount styling */
+.salary-amount {
+    font-weight: 600;
+    color: #059669;
+    white-space: nowrap;
+}
+
+/* Inactive row styling */
+.employees-table tbody tr.inactive {
+    opacity: 0.7;
+    background-color: #f9fafb;
+}
+
+.employees-table tbody tr.inactive:hover {
+    background-color: #f3f4f6;
+}

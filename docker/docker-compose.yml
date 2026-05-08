@@ -1,0 +1,94 @@
+services:
+  nginx:
+    container_name: nginx
+    platform: linux/x86_64
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ../laravel:/var/www/html
+      - ./nginx/:/etc/nginx/conf.d/
+    networks:
+      - laravel-network
+
+  laravel:
+    container_name: laravel
+    working_dir: /var/www/html
+    build:
+      args:
+        USER: www-data
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ../laravel:/var/www/html
+      - ./laravel.ini:/usr/local/etc/php/conf.d/laravel.ini
+    networks:
+      - laravel-network
+
+  database:
+    container_name: database
+    image: mysql:8.4
+    restart: unless-stopped
+    command: --init-file /data/application/init.sql
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123test321
+      MYSQL_ROOT_PASSWORD: 123test321
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    volumes:
+      - ./mysql/init_db.sql:/data/application/init.sql
+      - mysql_data:/var/lib/mysql
+    networks:
+      - laravel-network
+
+  maildev:
+    image: maildev/maildev
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+      - MAILDEV_WEB_PORT=1080
+      - MAILDEV_SMTP_PORT=1025
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+    networks:
+      - laravel-network
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --requirepass 123test321
+    networks:
+      - laravel-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  laravel-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
