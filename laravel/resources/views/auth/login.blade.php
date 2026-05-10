@@ -41,27 +41,17 @@
             @endif
         </div>
 
-        <button type="submit" class="btn btn-primary" style="display: flex; margin: 0 auto">
+        <button type="submit" class="btn btn-primary" style="display: flex; margin: 60px auto">
             <i class="fas fa-sign-in-alt"></i>
             Войти в систему
         </button>
 
         <div class="auth-footer">
-            <p style="text-align: center; margin: 20px 0;">
+            <p style="text-align: center; margin: 35px 0;">
                 <a href="{{ route('register') }}" style="color: #3b82f6; text-decoration: none;">
                     <i class="fas fa-user-plus"></i> Создать новый аккаунт
                 </a>
             </p>
-
-            <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
-                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Демо доступы:</p>
-                <div style="font-size: 11px; background: #f9fafb; padding: 10px; border-radius: 6px;">
-                    <div>👑 Админ: admin@mail.by / password</div>
-                    <div>💰 Бухгалтер: accountant@mail.by / password</div>
-                    <div>👥 Кадровик: hr@mail.by / password</div>
-                    <div>📊 Начальник: manager@mail.by / password</div>
-                </div>
-            </div>
         </div>
     </form>
 @endsection

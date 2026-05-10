@@ -33,15 +33,15 @@
                     <button type="button" class="settings-tab-btn" data-tab="company">
                         <i class="fas fa-building"></i> Компания
                     </button>
-                    <button type="button" class="settings-tab-btn" data-tab="notifications">
-                        <i class="fas fa-bell"></i> Уведомления
-                    </button>
+{{--                    <button type="button" class="settings-tab-btn" data-tab="notifications">--}}
+{{--                        <i class="fas fa-bell"></i> Уведомления--}}
+{{--                    </button>--}}
                     <button type="button" class="settings-tab-btn" data-tab="security">
                         <i class="fas fa-shield-alt"></i> Безопасность
                     </button>
-                    <button type="button" class="settings-tab-btn" data-tab="backup">
-                        <i class="fas fa-database"></i> Резервное копирование
-                    </button>
+{{--                    <button type="button" class="settings-tab-btn" data-tab="backup">--}}
+{{--                        <i class="fas fa-database"></i> Резервное копирование--}}
+{{--                    </button>--}}
                 </div>
 
                 <!-- Вкладка: Основные настройки -->
@@ -166,51 +166,51 @@
                 </div>
 
                 <!-- Вкладка: Уведомления -->
-                <div class="settings-tab-content" id="tab-notifications">
-                    <form method="POST" action="{{ route('settings.notifications') }}" class="settings-form">
-                        @csrf
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="notify_new_employee" class="form-check-input" value="1"
-                                    {{ ($settings['NOTIFY_NEW_EMPLOYEE'] ?? 'true') == 'true' ? 'checked' : '' }}>
-                                <span>Уведомлять при добавлении нового сотрудника</span>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="notify_salary_calc" class="form-check-input" value="1"
-                                    {{ ($settings['NOTIFY_SALARY_CALC'] ?? 'true') == 'true' ? 'checked' : '' }}>
-                                <span>Уведомлять о завершении расчета зарплаты</span>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="notify_tax_deadline" class="form-check-input" value="1"
-                                    {{ ($settings['NOTIFY_TAX_DEADLINE'] ?? 'true') == 'true' ? 'checked' : '' }}>
-                                <span>Уведомлять о сроках уплаты налогов</span>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="notify_contract_expiry" class="form-check-input" value="1"
-                                    {{ ($settings['NOTIFY_CONTRACT_EXPIRY'] ?? 'false') == 'true' ? 'checked' : '' }}>
-                                <span>Уведомлять об истечении срока контрактов</span>
-                            </label>
-                        </div>
+{{--                <div class="settings-tab-content" id="tab-notifications">--}}
+{{--                    <form method="POST" action="{{ route('settings.notifications') }}" class="settings-form">--}}
+{{--                        @csrf--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="notify_new_employee" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['NOTIFY_NEW_EMPLOYEE'] ?? 'true') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Уведомлять при добавлении нового сотрудника</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="notify_salary_calc" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['NOTIFY_SALARY_CALC'] ?? 'true') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Уведомлять о завершении расчета зарплаты</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="notify_tax_deadline" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['NOTIFY_TAX_DEADLINE'] ?? 'true') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Уведомлять о сроках уплаты налогов</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="notify_contract_expiry" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['NOTIFY_CONTRACT_EXPIRY'] ?? 'false') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Уведомлять об истечении срока контрактов</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
 
-                        <div class="form-group">
-                            <label for="notification_email">Email для уведомлений</label>
-                            <input type="email" id="notification_email" name="notification_email" class="form-control"
-                                   value="{{ old('notification_email', $settings['NOTIFICATION_EMAIL'] ?? 'admin@mail.by') }}">
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="notification_email">Email для уведомлений</label>--}}
+{{--                            <input type="email" id="notification_email" name="notification_email" class="form-control"--}}
+{{--                                   value="{{ old('notification_email', $settings['NOTIFICATION_EMAIL'] ?? 'admin@mail.by') }}">--}}
+{{--                        </div>--}}
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Сохранить настройки
-                            </button>
-                        </div>
-                    </form>
-                </div>
+{{--                        <div class="form-actions">--}}
+{{--                            <button type="submit" class="btn btn-primary">--}}
+{{--                                <i class="fas fa-save"></i> Сохранить настройки--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
 
                 <!-- Вкладка: Безопасность -->
                 <div class="settings-tab-content" id="tab-security">
@@ -222,31 +222,31 @@
                                    value="{{ old('session_lifetime', $settings['SESSION_LIFETIME'] ?? '120') }}" min="1" max="1440">
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="session_encrypt" class="form-check-input" value="1"
-                                    {{ ($settings['SESSION_ENCRYPT'] ?? 'false') == 'true' ? 'checked' : '' }}>
-                                <span>Шифровать данные сессии</span>
-                            </label>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="session_encrypt" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['SESSION_ENCRYPT'] ?? 'false') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Шифровать данные сессии</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
 
-                        <div class="form-group">
-                            <label for="password_min_length">Минимальная длина пароля</label>
-                            <select id="password_min_length" name="password_min_length" class="form-control">
-                                <option value="6" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '6' ? 'selected' : '' }}>6 символов</option>
-                                <option value="8" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '8' ? 'selected' : '' }}>8 символов</option>
-                                <option value="10" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '10' ? 'selected' : '' }}>10 символов</option>
-                                <option value="12" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '12' ? 'selected' : '' }}>12 символов</option>
-                            </select>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="password_min_length">Минимальная длина пароля</label>--}}
+{{--                            <select id="password_min_length" name="password_min_length" class="form-control">--}}
+{{--                                <option value="6" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '6' ? 'selected' : '' }}>6 символов</option>--}}
+{{--                                <option value="8" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '8' ? 'selected' : '' }}>8 символов</option>--}}
+{{--                                <option value="10" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '10' ? 'selected' : '' }}>10 символов</option>--}}
+{{--                                <option value="12" {{ ($settings['PASSWORD_MIN_LENGTH'] ?? '8') == '12' ? 'selected' : '' }}>12 символов</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
 
-                        <div class="form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="require_strong_password" class="form-check-input" value="1"
-                                    {{ ($settings['REQUIRE_STRONG_PASSWORD'] ?? 'true') == 'true' ? 'checked' : '' }}>
-                                <span>Требовать сложный пароль (цифры, буквы, спецсимволы)</span>
-                            </label>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label class="form-check-label">--}}
+{{--                                <input type="checkbox" name="require_strong_password" class="form-check-input" value="1"--}}
+{{--                                    {{ ($settings['REQUIRE_STRONG_PASSWORD'] ?? 'true') == 'true' ? 'checked' : '' }}>--}}
+{{--                                <span>Требовать сложный пароль (цифры, буквы, спецсимволы)</span>--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">
@@ -257,40 +257,40 @@
                 </div>
 
                 <!-- Вкладка: Резервное копирование -->
-                <div class="settings-tab-content" id="tab-backup">
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle"></i>
-                        <strong>Информация:</strong> Регулярное резервное копирование помогает защитить ваши данные.
-                    </div>
+{{--                <div class="settings-tab-content" id="tab-backup">--}}
+{{--                    <div class="alert alert-info">--}}
+{{--                        <i class="fas fa-info-circle"></i>--}}
+{{--                        <strong>Информация:</strong> Регулярное резервное копирование помогает защитить ваши данные.--}}
+{{--                    </div>--}}
 
-                    <div class="form-actions" style="margin-top: 20px;">
-                        <form method="POST" action="{{ route('settings.backup.create') }}" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-database"></i> Создать резервную копию сейчас
-                            </button>
-                        </form>
-                    </div>
+{{--                    <div class="form-actions" style="margin-top: 20px;">--}}
+{{--                        <form method="POST" action="{{ route('settings.backup.create') }}" style="display: inline;">--}}
+{{--                            @csrf--}}
+{{--                            <button type="submit" class="btn btn-primary">--}}
+{{--                                <i class="fas fa-database"></i> Создать резервную копию сейчас--}}
+{{--                            </button>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
 
-                    <div class="mt-4">
-                        <h5>Последние резервные копии</h5>
-                        <div class="table-responsive">
-                            <table class="table table-hover" id="backup-table">
-                                <thead>
-                                <tr>
-                                    <th>Дата создания</th>
-                                    <th>Размер</th>
-                                    <th>Тип</th>
-                                    <th>Действия</th>
-                                </tr>
-                                </thead>
-                                <tbody id="backup-list">
-                                <tr><td colspan="4" class="text-center text-muted">Загрузка...</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+{{--                    <div class="mt-4">--}}
+{{--                        <h5>Последние резервные копии</h5>--}}
+{{--                        <div class="table-responsive">--}}
+{{--                            <table class="table table-hover" id="backup-table">--}}
+{{--                                <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <th>Дата создания</th>--}}
+{{--                                    <th>Размер</th>--}}
+{{--                                    <th>Тип</th>--}}
+{{--                                    <th>Действия</th>--}}
+{{--                                </tr>--}}
+{{--                                </thead>--}}
+{{--                                <tbody id="backup-list">--}}
+{{--                                <tr><td colspan="4" class="text-center text-muted">Загрузка...</td></tr>--}}
+{{--                                </tbody>--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

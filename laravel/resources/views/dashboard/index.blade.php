@@ -23,15 +23,15 @@
             @case('admin')
                 @include('dashboard.admin')
                 @break
-            @case('accountant')
-                @include('dashboard.accountant')
-                @break
-            @case('hr')
-                @include('dashboard.hr')
-                @break
-            @case('manager')
-                @include('dashboard.manager')
-                @break
+{{--            @case('accountant')--}}
+{{--                @include('dashboard.accountant')--}}
+{{--                @break--}}
+{{--            @case('hr')--}}
+{{--                @include('dashboard.hr')--}}
+{{--                @break--}}
+{{--            @case('manager')--}}
+{{--                @include('dashboard.manager')--}}
+{{--                @break--}}
         @endswitch
     </div>
 @endsection

@@ -138,7 +138,7 @@
                     </div>
 
                     @if(method_exists($departments, 'hasPages') && $departments->hasPages())
-                        <div class="pagination">{{ $departments->links() }}</div>
+                        <div class="pagination">{{ $departments->links('pagination::bootstrap-5') }}</div>
                     @endif
 
                 @else

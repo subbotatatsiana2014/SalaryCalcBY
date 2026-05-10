@@ -36,9 +36,9 @@ class EmployeeController extends Controller
             $totalSalary = Employee::sum('salary');
             $avgSalary = Employee::avg('salary');
             $departments = Cache::remember('department_for_filter', 86400, fn() => Department::all());
-            $stats = Cache::remember('employees_stats', 3600, function ($totalEmployees) {
+            $stats = Cache::remember('employees_stats', 3600, function () {
                 return [
-                    'total_employees' => $totalEmployees,
+                    'total_employees' => Employee::count(),
                     'salary_fund' => number_format(Employee::sum('salary'), 2, '.', ''),
                     'taxes_due' => number_format(Employee::sum('salary') * 0.14, 2, '.', ''),
                     'total_departments' => Department::count(),

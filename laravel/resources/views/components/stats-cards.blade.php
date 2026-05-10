@@ -1,5 +1,5 @@
 <div class="stats-cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-    @if(in_array(auth()->user()->role, ['admin', 'hr', 'manager']))
+
         <div class="stat-card card-employees">
             <div class="stat-card-icon">
                 <i class="fas fa-users"></i>
@@ -9,9 +9,7 @@
                 <div class="stat-card-value">{{ $stats['total_employees'] ?? 0 }}</div>
             </div>
         </div>
-    @endif
 
-    @if(in_array(auth()->user()->role, ['admin', 'accountant']))
         <div class="stat-card card-salary">
             <div class="stat-card-icon">
                 <i class="fas fa-money-bill-wave"></i>
@@ -21,9 +19,7 @@
                 <div class="stat-card-value">{{ $stats['salary_fund'] }} BYN</div>
             </div>
         </div>
-    @endif
 
-    @if(in_array(auth()->user()->role, ['admin', 'accountant']))
         <div class="stat-card card-taxes">
             <div class="stat-card-icon">
                 <i class="fas fa-file-invoice-dollar"></i>
@@ -33,9 +29,7 @@
                 <div class="stat-card-value">{{ $stats['taxes_due'] }} BYN</div>
             </div>
         </div>
-    @endif
 
-    @if(in_array(auth()->user()->role, ['admin', 'manager']))
         <div class="stat-card card-departments">
             <div class="stat-card-icon">
                 <i class="fas fa-building"></i>
@@ -45,5 +39,4 @@
                 <div class="stat-card-value">{{ $stats['total_departments'] ?? 0 }}</div>
             </div>
         </div>
-    @endif
 </div>

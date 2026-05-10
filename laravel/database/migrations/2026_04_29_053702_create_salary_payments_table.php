@@ -48,7 +48,6 @@ return new class extends Migration
 
             // Дополнительно
             $table->text('notes')->nullable();
-            $table->json('tax_rates_snapshot')->nullable(); // Сохраняем ставки на момент расчета
             $table->timestamps();
 
             $table->unique(['employee_id', 'year', 'month']);

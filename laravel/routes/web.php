@@ -24,7 +24,6 @@ Route::post('/register', [AuthController::class, 'register']);
 
 // Сотрудники
 Route::middleware(['auth', 'role:admin,hr,manager'])->group(function () {
-    // Основные CRUD маршруты
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
@@ -68,18 +67,18 @@ Route::middleware(['auth', 'role:admin,accountant'])->group(function () {
 });
 
 // Подразделения
-Route::resource('departments', DepartmentController::class);
-Route::get('/departments/{department}/employees', [DepartmentController::class, 'employees'])->name('departments.employees');
-Route::get('/departments/tree', [DepartmentController::class, 'tree'])->name('departments.tree');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('departments', DepartmentController::class);
+    Route::get('/departments/{department}/employees', [DepartmentController::class, 'employees'])->name('departments.employees');
+    Route::get('/departments/tree', [DepartmentController::class, 'tree'])->name('departments.tree');
+});
 
 // Настройки (только админ)
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
-
-    // Маршруты для сохранения
     Route::post('/settings/general', [SettingsController::class, 'saveGeneral'])->name('settings.general');
     Route::post('/settings/company', [SettingsController::class, 'saveCompany'])->name('settings.company');
-    Route::post('/settings/notifications', [SettingsController::class, 'saveNotifications'])->name('settings.notifications');
+//  Route::post('/settings/notifications', [SettingsController::class, 'saveNotifications'])->name('settings.notifications');
     Route::post('/settings/security', [SettingsController::class, 'saveSecurity'])->name('settings.security');
 
     // Удаление логотипа

@@ -17,7 +17,7 @@ class SalaryPayment extends Model
         'other_accruals', 'total_accrued', 'total_tax_deductions', 'tax_deductions_details',
         'income_tax', 'pension_fund', 'social_security', 'trade_union',
         'other_deductions', 'total_deductions', 'net_salary',
-        'status', 'notes', 'tax_rates_snapshot'
+        'status', 'notes'
     ];
 
     protected $casts = [
@@ -37,7 +37,6 @@ class SalaryPayment extends Model
         'total_deductions' => 'decimal:2',
         'net_salary' => 'decimal:2',
         'tax_deductions_details' => 'array',
-        'tax_rates_snapshot' => 'array',
     ];
 
     public function employee()
